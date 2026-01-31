@@ -41,13 +41,43 @@ export const menudata: MenuData[] = [
     completed: false,
     fields: [{
       id: 1,
-      title: "First Name",
-      slug: "first-name",
+      title: "Phone Number",
+      slug: "phone_number",
+      type: "number",
+      mandatory: true,
+      placeholder: "",
+    },
+    {
+      id: 2,
+      title: "Email Address",
+      slug: "email_address",
+      type: "email",
+      mandatory: true,
+      placeholder: "",
+    },
+    {
+      id: 3,
+      title: "City",
+      slug: "city",
       type: "text",
       mandatory: true,
       placeholder: "",
-      m_show: true
-    }],
+    },
+    {
+      id: 4,
+      title: "Country",
+      slug: "country",
+      type: "text",
+      mandatory: true,
+      placeholder: "",
+    },
+    {
+      id: 5,
+      title: "additional(links)",
+      divider: true,
+    },
+    
+  ],
   },
   {
     id: 3,

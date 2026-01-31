@@ -4,23 +4,14 @@ export { }
 
 declare global {
 
-    interface InputProps {
-        id?: number | string;
-        title: string;
-        type: string;
-        placeholder: string;
-        mal: boolean;
-        show?: boolean;
-        onValueChange?: (value: string | boolean) => void;
-    }
-
     interface FieldData {
         id: number | string;
         title: string;
-        type: string;
-        placeholder: string;
-        slug: string;
-        mandatory: boolean;
+        type?: string;
+        placeholder?: string;
+        slug?: string;
+        mandatory?: boolean;
+        divider?: boolean;
         m_show?: boolean;
     }
 

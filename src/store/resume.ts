@@ -1,3 +1,4 @@
+'use client'
 import { create } from 'zustand';
 import { persist, createJSONStorage, StateStorage } from 'zustand/middleware';
 import Cookies from 'js-cookie';

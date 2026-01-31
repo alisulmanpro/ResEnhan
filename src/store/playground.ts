@@ -1,3 +1,4 @@
+'use client'
 import { create } from 'zustand';
 import { persist, createJSONStorage, StateStorage } from 'zustand/middleware';
 import Cookies from 'js-cookie';
@@ -16,15 +17,15 @@ interface MenuState {
     menuData: MenuData[];
     setActiveSection: (id: number) => void;
     setCompleteStatus: (id: number | undefined) => void;
-    toggleMiddleField: (sectionId: number, isChecked: boolean) => void; 
+    toggleMiddleField: (sectionId: number, isChecked: boolean) => void;
+    setAdditionalLinks: (sectionId: number, toggle: boolean) => void
 }
-
 export const useMenuStore = create<MenuState>()(
     persist(
         (set) => ({
             activeSectionId: 1,
             menuData: menudata,
-            
+
             setActiveSection: (id) => set({ activeSectionId: id }),
 
             setCompleteStatus: (id) => {
@@ -64,6 +65,51 @@ export const useMenuStore = create<MenuState>()(
                     }),
                 }));
             },
+
+            setAdditionalLinks: (sectionId, toggle) => {
+                set((state) => ({
+                    menuData: state.menuData.map((section) => {
+                        if (section.id !== sectionId) return section;
+
+                        let updatedFields = [...section.fields];
+
+                        if (toggle) {
+                            const exists1 = updatedFields.some((f) => f.id === 6);
+                            const exists2 = updatedFields.some((f) => f.id === 7);
+
+                            if (!exists1) {
+                                updatedFields.splice(6, 0, {
+                                    id: 6,
+                                    title: 'Linkedin URL',
+                                    slug: 'linkedin-url',
+                                    type: 'url',
+                                    mandatory: false,
+                                });
+                            }
+
+                            if (!exists2) {
+                                updatedFields.splice(7, 0, {
+                                    id: 7,
+                                    title: 'GitHub URL',
+                                    slug: 'github-url',
+                                    type: 'url',
+                                    mandatory: false,
+                                });
+                            }
+                        } else {
+                            updatedFields = updatedFields.filter(
+                                (f) => f.id !== 6 && f.id !== 7
+                            );
+                        }
+
+                        return {
+                            ...section,
+                            fields: updatedFields,
+                        };
+                    }),
+                }));
+            },
+
         }),
         {
             name: 'ResEnhan-menu-secure',
