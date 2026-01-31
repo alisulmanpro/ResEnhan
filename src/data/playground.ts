@@ -1,0 +1,116 @@
+export const menudata: MenuData[] = [
+  {
+    id: 1,
+    title: "Personal Information",
+    slug: "",
+    description: "Define your professional persona and craft a compelling headline that captures recruiter attention in seconds.",
+    completed: false,
+    fields: [
+      {
+        id: 1,
+        title: "First Name",
+        slug: "first_name",
+        type: "text",
+        mandatory: true,
+        placeholder: "",
+        m_show: true,
+      },
+      {
+        id: 2,
+        title: "Last Name",
+        slug: "last_name",
+        type: "text",
+        mandatory: true,
+        placeholder: "",
+      },
+      {
+        id: 3,
+        title: "Job Designation",
+        slug: "job_designation",
+        type: "text",
+        mandatory: true,
+        placeholder: "",
+      },
+    ]
+  },
+  {
+    id: 2,
+    title: "Contact Info",
+    slug: "contact-info",
+    description: "Provide verified contact channels and professional links to ensure seamless communication during the hiring process.",
+    completed: false,
+    fields: [{
+      id: 1,
+      title: "First Name",
+      slug: "first-name",
+      type: "text",
+      mandatory: true,
+      placeholder: "",
+      m_show: true
+    }],
+  },
+  {
+    id: 3,
+    title: "Work Experience",
+    slug: "work-experience",
+    description: "Detail your professional journey using impact-driven bullet points that showcase measurable results and career growth.",
+    completed: false,
+    fields: [{
+      id: 1,
+      title: "First Name",
+      slug: "first-name",
+      type: "text",
+      mandatory: true,
+      placeholder: "",
+      m_show: true
+    }],
+  },
+  {
+    id: 4,
+    title: "Education",
+    slug: "education",
+    description: "Document your academic background, certifications, and relevant coursework that form the foundation of your expertise.",
+    completed: false,
+    fields: [{
+      id: 1,
+      title: "First Name",
+      slug: "first-name",
+      type: "text",
+      mandatory: true,
+      placeholder: "",
+      m_show: true
+    }],
+  },
+  {
+    id: 5,
+    title: "Technical Skills",
+    slug: "technical-skills",
+    description: "Strategically list your core competencies and tools to pass through ATS filters and match specific job requirements.",
+    completed: false,
+    fields: [{
+      id: 1,
+      title: "First Name",
+      slug: "first-name",
+      type: "text",
+      mandatory: true,
+      placeholder: "",
+      m_show: true
+    }],
+  },
+  {
+    id: 6,
+    title: "Technical Projects",
+    slug: "technical-projects",
+    description: "Showcase your problem-solving abilities and practical application of skills through detailed descriptions of your best work.",
+    completed: false,
+    fields: [{
+      id: 1,
+      title: "First Name",
+      slug: "first-name",
+      type: "text",
+      mandatory: true,
+      placeholder: "",
+      m_show: true
+    }],
+  }
+];

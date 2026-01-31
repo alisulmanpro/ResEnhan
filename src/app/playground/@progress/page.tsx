@@ -1,43 +1,31 @@
+"use client"
+import { useMenuStore } from "@/store/playground";
+import clsx from "clsx";
 import { IoMdAdd } from "react-icons/io";
+import { FaCheck } from "react-icons/fa6";
 
 const Progress = () => {
-    const data = [
-        {
-            id: 1,
-            title: "Personal Information"
-        },
-        {
-            id: 2,
-            title: "Contact Info"
-        },
-        {
-            id: 3,
-            title: "Work Experience"
-        },
-        {
-            id: 4,
-            title: "Education"
-        },
-        {
-            id: 5,
-            title: "Technical Skills"
-        },
-        {
-            id: 6,
-            title: "Techincal Projects"
-        },
-    ]
+    const { activeSectionId, setActiveSection, menuData } = useMenuStore()
+
     return (
         <section>
             <ul className="menu bg-base-100 rounded-box min-w-65 w-full gap-3">
-                {data?.map(item => (
-                    <li key={item.id}>
-                        <a href="">
-                            <div className="btn btn-accent px-0.5">
-                                <button className="btn btn-sm btn-success">{item.id}</button>
-                            </div>
+                {menuData?.map(item => (
+                    <li
+                        key={item.id}
+                        className={activeSectionId == item.id ? "menu-active" : "transition-all transform duration-1000"}
+                        onClick={() => setActiveSection(item.id)}
+                    >
+                        <div>
+                            {item.completed ? (
+                                <button className={clsx("btn btn-success w-12 border-3!", { "border-transparent": item.id !== activeSectionId })}>
+                                    <FaCheck />
+                                </button>
+                            ) : (
+                                <button className={clsx("btn btn-accent w-12 border-3!", { "border-base-100": item.id === activeSectionId, "border-transparent": item.id !== activeSectionId })}>{item.id}</button>
+                            )}
                             <span className="text-lg">{item.title}</span>
-                        </a>
+                        </div>
                     </li>
                 ))}
                 <li>
